@@ -1,4 +1,4 @@
-package com.wyj;
+package com.wyj.beans;
 
 /**
 * 实体类

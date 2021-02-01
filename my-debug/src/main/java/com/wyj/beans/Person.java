@@ -1,4 +1,4 @@
-package com.wyj;
+package com.wyj.beans;
 
 public class Person {
 	private String name;
