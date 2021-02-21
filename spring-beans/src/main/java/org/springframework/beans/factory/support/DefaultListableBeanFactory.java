@@ -733,8 +733,14 @@ public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFacto
 		// Trigger initialization of all non-lazy singleton beans...
 		for (String beanName : beanNames) {
 			RootBeanDefinition bd = getMergedLocalBeanDefinition(beanName);
+			/**
+			 * Spring推荐越早实例化bean越好,但是并不是所有的bean都能在启动时就实例化
+			 * 需要满足的条件 非抽象类，必须是单例且配置的是非懒加载
+			 * 推荐阅读-> https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#beans-dependency-resolution
+			 */
 			if (!bd.isAbstract() && bd.isSingleton() && !bd.isLazyInit()) {
 				if (isFactoryBean(beanName)) {
+					//工厂bean
 					Object bean = getBean(FACTORY_BEAN_PREFIX + beanName);
 					if (bean instanceof FactoryBean) {
 						FactoryBean<?> factory = (FactoryBean<?>) bean;

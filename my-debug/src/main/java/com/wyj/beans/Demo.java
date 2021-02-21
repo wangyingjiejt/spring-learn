@@ -30,13 +30,26 @@ public class Demo {
 	/**
 	 * 使用xml方式获取bean信息
 	 * @author W.Y.J
-	 * @Date 2021/2/1 17:31
+	 * @Date 2021/2/1 17:31b
 	 */
 	@Test
 	public void test2(){
 		ApplicationContext context = new ClassPathXmlApplicationContext("bean.xml");
 		Person person = (Person) context.getBean("person");
 		System.out.println(person.getName());
+
+
+	}
+
+
+	/**
+	 * 测试使用InitializingBean
+	 */
+	@Test
+	public void test3(){
+		ApplicationContext context = new ClassPathXmlApplicationContext("bean.xml");
+		TestInitializingBean testBean = (TestInitializingBean) context.getBean("testInitializingBean");
+		System.out.println(testBean.getValue());
 
 
 	}

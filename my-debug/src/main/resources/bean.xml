@@ -6,4 +6,6 @@
 	<bean id="person" class="com.wyj.beans.Person">
 		<property name="name" value="朝阳区"></property>
 	</bean>
+	<bean id="testInitializingBean" class="com.wyj.beans.TestInitializingBean">
+	</bean>
 </beans>
